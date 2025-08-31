@@ -1,0 +1,9 @@
+<nav [ngClass]="{ sidemenuIsOpen: sidemenuS.menuIsOpen() }">
+  <button class="toggle-sidemenu-button" (click)="sidemenuS.toggleMenu()">
+    <fa-icon [icon]="faBars"></fa-icon>
+  </button>
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/docs">Docs</a></li>
+  </ul>
+</nav>
