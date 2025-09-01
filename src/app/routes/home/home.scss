@@ -12,20 +12,27 @@ section {
 }
 
 .hero {
-  display: grid;
-  gap: 3em;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: 1fr;
+  display: flex;
+  gap: 2em;
 
-  @media only screen and (max-width: 800px) {
-    grid-template-columns: 1fr;
-    grid-column: 1;
-    grid-row: 1;
-  }
+  .headline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 
-  h1 {
-    max-width: 20em;
-    font-weight: normal;
+    h1 {
+      max-width: 20em;
+      font-size: 3em;
+      margin: 0;
+    }
+
+    span {
+      font-size: 1.5em;
+    }
+
+    .super-lightweight {
+      color: green;
+    }
   }
 
   .install-command-container {
@@ -35,7 +42,8 @@ section {
     font-size: 1.3em;
 
     span {
-      background-color: #f3f3f3;
+      background-color: #000000;
+      color: rgb(243, 243, 243);
       padding: 0.2em 0.4em;
       border-radius: 0.2em;
 
@@ -55,13 +63,10 @@ section {
       justify-content: center;
       align-items: center;
 
-      &:hover {
-        cursor: pointer;
-        background-color: rgb(224, 224, 253);
-      }
-
+      &:hover,
       &:focus {
-        outline: 2px solid;
+        cursor: pointer;
+        transform: scale(1.2);
       }
     }
   }

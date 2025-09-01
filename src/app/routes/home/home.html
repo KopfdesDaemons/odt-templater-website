@@ -1,13 +1,23 @@
 <section class="hero">
-  <h1>
-    A simple odt templater <br />
-    for node.js and the browser
-  </h1>
+  <div class="headline-container">
+    <h1>
+      A simple odt templater <br />
+      for node.js and the browser
+    </h1>
+    <div>
+      <span class="super-lightweight">🚀 Super lightweight:</span>
+      <span> 2 KB (zipped 659 bytes)</span>
+    </div>
+  </div>
   <div class="install-command-container">
     <span class="install-command" (click)="copyInstallCommand()"
       >npm i odt-templater</span
     >
-    <button>
+    <button
+      aria-label="Copy install command to clipboard"
+      title="Copy install command to clipboard"
+      class="copy-install-command-button"
+    >
       <fa-icon [icon]="faCopy" (click)="copyInstallCommand()"></fa-icon>
     </button>
   </div>
