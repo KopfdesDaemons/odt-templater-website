@@ -1,7 +1,11 @@
 <nav [ngClass]="{ sidemenuIsOpen: sidemenuS.menuIsOpen() }">
-  <button class="toggle-sidemenu-button" (click)="sidemenuS.toggleMenu()">
-    <fa-icon [icon]="faBars"></fa-icon>
-  </button>
+  <!-- When the sidemenu is open, the container is fixed -->
+  <div class="dynamic-container">
+    <button class="toggle-sidemenu-button" (click)="sidemenuS.toggleMenu()">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </button>
+    <a routerLink="/">odt-templater</a>
+  </div>
   <ul>
     <li><a routerLink="/">Home</a></li>
     <li><a routerLink="/docs">Docs</a></li>

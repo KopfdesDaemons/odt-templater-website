@@ -1,11 +1,14 @@
 nav {
-  background-color: rgb(222, 222, 255);
   height: var(--header-height);
   display: flex;
   align-items: center;
   box-sizing: border-box;
   width: 100%;
 
+  a {
+    color: var(--font-color);
+    text-decoration: none;
+  }
   ul {
     flex: 1;
     display: flex;
@@ -13,33 +16,59 @@ nav {
     gap: 1em;
     list-style: none;
     padding: 0;
+    padding-right: 3em;
     margin: 0;
 
     a {
-      color: var(--font-color);
-      text-decoration: none;
       font-weight: bold;
+      font-size: 1.3em;
+    }
+  }
+
+  --dinamic-container-width: 13em;
+
+  .dynamic-container {
+    width: var(--dinamic-container-width);
+    display: flex;
+    align-items: center;
+    z-index: 2;
+
+    a {
+      color: rgb(92, 92, 180);
+      font-size: clamp(1em, 5vw, 1.6em);
     }
   }
 
   &.sidemenuIsOpen {
-    position: fixed;
+    .dynamic-container {
+      position: fixed;
+    }
+
+    ul {
+      margin-left: var(--dinamic-container-width);
+    }
   }
 
   // Fixed header only when sidemenu is open
   @media only screen and (min-width: 1100px) {
     // Menu is open
-    position: fixed;
+    .dynamic-container {
+      position: fixed;
+    }
+
+    ul {
+      margin-left: var(--dinamic-container-width);
+    }
 
     // Menu is closed (inverted class)
-    &.sidemenuIsOpen {
+    &.sidemenuIsOpen .dynamic-container {
       position: absolute;
     }
   }
 
   // fixed menu only on large screen
   @media only screen and (min-width: 1900px) {
-    &.sidemenuIsOpen {
+    &.sidemenuIsOpen .dynamic-container {
       position: fixed;
     }
   }

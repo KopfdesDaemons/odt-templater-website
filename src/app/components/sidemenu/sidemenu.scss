@@ -4,6 +4,7 @@
   position: fixed;
   z-index: 1;
   display: none;
+  top: var(--header-height);
 
   @media only screen and (max-width: 1100px) {
     &.open {
@@ -18,20 +19,20 @@ aside {
   left: 0;
   z-index: 1;
   height: 100%;
-  margin-top: var(--header-height);
-  background-color: rgb(241, 241, 255);
   padding: 1em;
-  width: 0;
-  transition: width 200ms;
-  transition: all 100ms ease-in-out;
+  padding-top: calc(var(--header-height) + 1em);
+  transition: all 200ms ease-in-out;
   box-sizing: border-box;
   width: var(--sidemenu-width);
   display: flex;
   transition-behavior: allow-discrete;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
 
+  // closed on big screens (inverted class)
   &.open {
     transform: translateX(calc(-1 * var(--sidemenu-width)));
-    display: flex;
+    display: none;
   }
 
   @media only screen and (max-width: 1100px) {
@@ -65,13 +66,12 @@ ul {
     a:visited {
       display: flex;
       padding: 1em 1em;
-      background-color: rgb(225, 225, 248);
       border-radius: 1.3em;
       color: var(--font-color);
       text-decoration: none;
 
       &:hover {
-        background-color: rgb(200, 200, 240);
+        background-color: rgb(245, 245, 255);
       }
     }
   }

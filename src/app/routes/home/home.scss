@@ -1,6 +1,68 @@
 :host {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: calc(100vh - var(--header-height));
+}
+
+section {
+  padding: clamp(1em, 4vw, 4em);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  display: grid;
+  gap: 3em;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  h1 {
+    max-width: 20em;
+    font-weight: normal;
+  }
+
+  .install-command-container {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    font-size: 1.3em;
+
+    span {
+      background-color: #f3f3f3;
+      padding: 0.2em 0.4em;
+      border-radius: 0.2em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    button {
+      all: unset;
+      font-size: 1.3em;
+      border-radius: 6px;
+      padding: 0.2em;
+      width: 1em;
+      height: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(224, 224, 253);
+      }
+
+      &:focus {
+        outline: 2px solid;
+      }
+    }
+  }
 }

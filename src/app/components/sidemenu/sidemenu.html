@@ -1,6 +1,6 @@
 <div
   class="closingDiv"
-  [ngClass]="{ open: sidemenuS.menuIsOpen }"
+  [ngClass]="{ open: sidemenuS.menuIsOpen() }"
   (click)="sidemenuS.toggleMenu()"
 ></div>
 <aside [ngClass]="{ open: sidemenuS.menuIsOpen() }">
