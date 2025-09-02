@@ -8,17 +8,64 @@
       <span class="super-lightweight">🚀 Super lightweight:</span>
       <span> 2 KB (zipped 659 bytes)</span>
     </div>
+    <div class="install-command-container">
+      <span class="install-command" (click)="copyInstallCommand()"
+        >npm i odt-templater</span
+      >
+      <button
+        aria-label="Copy install command to clipboard"
+        title="Copy install command to clipboard"
+        class="copy-install-command-button"
+      >
+        <fa-icon [icon]="faCopy" (click)="copyInstallCommand()"></fa-icon>
+      </button>
+    </div>
   </div>
-  <div class="install-command-container">
-    <span class="install-command" (click)="copyInstallCommand()"
-      >npm i odt-templater</span
-    >
-    <button
-      aria-label="Copy install command to clipboard"
-      title="Copy install command to clipboard"
-      class="copy-install-command-button"
-    >
-      <fa-icon [icon]="faCopy" (click)="copyInstallCommand()"></fa-icon>
-    </button>
+  <div class="example-container">
+    <div class="document">
+      <h2>Example</h2>
+      <p>Hello {{ "{" }} user.name {{ "}" }},</p>
+      <br />
+      <p>{{ "{" }} #user.age {{ "}" }}</p>
+      <p>Your age is {{ "{" }} user.age {{ "}" }}</p>
+      <p>{{ "{" }} / {{ "}" }}</p>
+      <br />
+      <p>{{ "{" }} #user.name == John {{ "}" }}</p>
+      <p>Hello John!</p>
+      <p>{{ "{" }} / {{ "}" }}</p>
+    </div>
+  </div>
+</section>
+<section class="features">
+  <h2>Features</h2>
+  <ul>
+    <li>Placeholder replacement</li>
+    <li>Conditionals</li>
+    <li>Empty conditionals (nullish check)</li>
+  </ul>
+</section>
+<section class="getting-started">
+  <h2>Getting started</h2>
+  <div class="getting-started-links">
+    <a routerLink="/">Getting started (Node.js)</a>
+    <a routerLink="/">Getting started (Browser)</a>
+  </div>
+  <p>
+    There is a GitHub repository with
+    <a
+      target="_blank"
+      href="https://github.com/KopfdesDaemons/odt-templater-examples"
+      >simple examples</a
+    >.
+  </p>
+</section>
+<section>
+  <h2>Get involved</h2>
+  <p>Have you found a bug or is an important function missing?</p>
+  <div class="social-links">
+    <p>
+      Visit
+      <a href="https://github.com/KopfdesDaemons/odt-templater">GitHub</a>
+    </p>
   </div>
 </section>

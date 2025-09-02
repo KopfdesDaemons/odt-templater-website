@@ -1,7 +1,8 @@
 :host {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  gap: 1em;
+  align-items: center;
+  flex-direction: column;
   min-height: calc(100vh - var(--header-height));
 }
 
@@ -9,21 +10,26 @@ section {
   padding: clamp(1em, 4vw, 4em);
   display: flex;
   flex-direction: column;
+  max-width: 50em;
 }
 
 .hero {
   display: flex;
-  gap: 2em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
 
   .headline-container {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
+    flex: 1 1 60%;
 
     h1 {
       max-width: 20em;
-      font-size: 3em;
+      font-size: clamp(2em, 6vw, 2.5em);
       margin: 0;
+      text-wrap: balance;
     }
 
     span {
@@ -42,7 +48,7 @@ section {
     font-size: 1.3em;
 
     span {
-      background-color: #000000;
+      background-color: #6c51d8;
       color: rgb(243, 243, 243);
       padding: 0.2em 0.4em;
       border-radius: 0.2em;
@@ -63,11 +69,65 @@ section {
       justify-content: center;
       align-items: center;
 
-      &:hover,
-      &:focus {
+      &:hover {
         cursor: pointer;
         transform: scale(1.2);
       }
+      &:focus {
+        outline: 2px solid;
+      }
     }
   }
+
+  .example-container {
+    container-type: inline-size;
+    flex: 1 0 15em;
+
+    .document {
+      background-color: rgb(255, 255, 255);
+      font-size: 5.5cqw;
+      border-radius: 6px;
+      padding: 0.5em;
+      aspect-ratio: 1 / 1.4142;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+
+      h2 {
+        margin: 0.5em 0;
+        text-align: start;
+      }
+    }
+  }
+}
+.getting-started-links {
+  display: flex;
+  gap: 0.5em;
+
+  a {
+    color: var(--font-color);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5em;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    text-decoration: none;
+    border: 1px solid rgb(165, 165, 165);
+
+    &:hover {
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+h2 {
+  text-align: center;
+}
+
+.features {
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+
+.getting-started {
 }

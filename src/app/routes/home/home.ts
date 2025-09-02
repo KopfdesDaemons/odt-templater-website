@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-home',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

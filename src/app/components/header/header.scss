@@ -4,6 +4,7 @@ nav {
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  --dinamic-container-width: 13em;
 
   a {
     color: var(--font-color);
@@ -16,7 +17,7 @@ nav {
     gap: 1em;
     list-style: none;
     padding: 0;
-    padding-right: 3em;
+    padding-right: var(--sidemenu-width);
     margin: 0;
 
     a {
@@ -25,7 +26,11 @@ nav {
     }
   }
 
-  --dinamic-container-width: 13em;
+  @media only screen and (max-width: 800px) {
+    ul {
+      padding-right: unset;
+    }
+  }
 
   .dynamic-container {
     width: var(--dinamic-container-width);
@@ -58,6 +63,7 @@ nav {
 
     ul {
       margin-left: var(--dinamic-container-width);
+      padding-right: 0;
     }
 
     // Menu is closed (inverted class)
