@@ -82,6 +82,7 @@ section {
   .example-container {
     container-type: inline-size;
     flex: 1 0 15em;
+    max-width: 60%;
 
     .document {
       background-color: rgb(255, 255, 255);
@@ -100,6 +101,8 @@ section {
 }
 .getting-started-links {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5em;
 
   a {
@@ -107,7 +110,7 @@ section {
     background-color: rgb(255, 255, 255);
     border-radius: 5em;
     padding: 0.5em 1em;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-decoration: none;
     border: 1px solid rgb(165, 165, 165);
 
@@ -121,13 +124,17 @@ h2 {
   text-align: center;
 }
 
+.features,
+.getting-started,
+.get-involved {
+  font-size: 1.3em;
+}
+
 .features {
   ul {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    padding: 0;
   }
-}
-
-.getting-started {
 }
