@@ -8,6 +8,5 @@ export class SidemenuToggle {
 
   public toggleMenu() {
     this.menuIsOpen.set(!this.menuIsOpen());
-    console.log('MenuIsOpen:', this.menuIsOpen());
   }
 }

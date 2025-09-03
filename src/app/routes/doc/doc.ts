@@ -1,0 +1,54 @@
+import {
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+  ViewEncapsulation,
+} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription, firstValueFrom } from 'rxjs';
+import { MetaService } from '../../services/meta';
+import { Docs } from '../../services/docs';
+import { Doc } from '../../models/doc';
+
+@Component({
+  selector: 'app-doc',
+  imports: [],
+  templateUrl: './doc.html',
+  styleUrl: './doc.scss',
+  encapsulation: ViewEncapsulation.None,
+})
+export class DocRoute {
+  private route = inject(ActivatedRoute);
+  private docsS = inject(Docs);
+  private metaS = inject(MetaService);
+  postContent = viewChild.required<ElementRef>('postContent');
+
+  doc = signal<Doc | undefined | null>(undefined);
+  private routeParamsSubscription: Subscription | undefined;
+  postNotFound: boolean = false;
+
+  ngOnInit() {
+    this.routeParamsSubscription = this.route.params.subscribe(
+      async (param) => {
+        this.postNotFound = false;
+
+        const fileName =
+          param['fileName'] ||
+          (await firstValueFrom(this.route.data))?.['fileName'];
+        if (fileName) this.doc.set(await this.docsS.getDoc(fileName));
+
+        // set meta tags
+        if (this.doc()?.docMeta) {
+          this.metaS.updateMetaTags(this.doc()!.docMeta);
+        }
+        this.postNotFound = !this.doc();
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.routeParamsSubscription?.unsubscribe();
+  }
+}
