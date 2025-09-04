@@ -1,12 +1,30 @@
 ---
 tilte: Getting started (Browser)
 description: A minimal example of how the odt-templater is used in the browser
-date: 2025-09-03
+date: 2025-09-04
 ---
 
 # Getting started (Browser)
 
-```typescript
+## Installation
+
+The odt-templater is available as a [NPM package](https://www.npmjs.com/package/odt-templater).
+
+```bash
+npm i odt-templater
+```
+
+You can also embed the odt-templater from a CDN.
+
+```javascript
+import { OdtTemplater } from "https://cdn.jsdelivr.net/npm/odt-templater/dist/esm/index.js";
+```
+
+## Setup
+
+The odt templater requires the content of the ODT file as a string as a parameter. The content must be read from the `content.xml` file within the ODT file. Any ZIP library, such as [JSZip](https://www.npmjs.com/package/jszip) or [PizZip](https://www.npmjs.com/package/pizzip?activeTab=code), can be used for this task.
+
+```js
 async function generateOdtDocument() {
   const data = {
     title: "Hello World",

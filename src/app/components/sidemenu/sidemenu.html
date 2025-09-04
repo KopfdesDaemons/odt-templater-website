@@ -3,16 +3,21 @@
   [ngClass]="{ open: sidemenuS.menuIsOpen() }"
   (click)="sidemenuS.toggleMenu()"
 ></div>
-<aside [ngClass]="{ open: sidemenuS.menuIsOpen() }">
+<aside
+  [ngClass]="{ open: sidemenuS.menuIsOpen() }"
+  (click)="sidemenuS.toggleMenu()"
+>
   <nav>
     <ul>
+      <li>
+        <a routerLink="/doc/getting-started-nodejs/."
+          >Getting started (Node.js)</a
+        >
+      </li>
       <li>
         <a routerLink="/doc/getting-started-browser/."
           >Getting started (Browser)</a
         >
-      </li>
-      <li>
-        <a routerLink="/">Getting started (Node.js)</a>
         <hr />
       </li>
       <li><a routerLink="/">Placeholders</a></li>

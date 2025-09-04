@@ -1,6 +1,19 @@
 article {
   max-width: 50em;
   margin: 3em auto;
+  padding: 0 4%;
+
+  p {
+    line-height: 1.6;
+
+    & > code {
+      background-color: #6b6aa8;
+      padding: 0.5em 0.6em;
+      border-radius: 5px;
+      font-size: 0.9em;
+      color: white;
+    }
+  }
 }
 
 pre {

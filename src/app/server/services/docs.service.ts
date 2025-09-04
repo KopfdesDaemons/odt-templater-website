@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { DOCS_FOLDER_PATH } from './config/paths.config';
+import { DOCS_FOLDER_PATH } from '../config/paths.config';
 import path from 'path';
 import { MarkdownHelper } from '../../helpers/markdown';
 import { DocMeta } from '../../models/doc-meta';
