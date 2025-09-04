@@ -1,3 +1,7 @@
+main {
+  min-height: 100vh;
+}
+
 article {
   max-width: 50em;
   margin: 3em auto;
@@ -29,4 +33,8 @@ pre {
   padding: 1em;
   font-size: 1.2em;
   overflow: auto;
+}
+
+.page-not-found {
+  text-align: center;
 }

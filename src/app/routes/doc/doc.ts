@@ -27,23 +27,27 @@ export class DocRoute {
 
   doc = signal<Doc | undefined | null>(undefined);
   private routeParamsSubscription: Subscription | undefined;
-  postNotFound: boolean = false;
+  postNotFound = signal(false);
 
   ngOnInit() {
     this.routeParamsSubscription = this.route.params.subscribe(
       async (param) => {
-        this.postNotFound = false;
+        try {
+          this.postNotFound.set(false);
 
-        const fileName =
-          param['fileName'] ||
-          (await firstValueFrom(this.route.data))?.['fileName'];
-        if (fileName) this.doc.set(await this.docsS.getDoc(fileName));
+          const fileName =
+            param['fileName'] ||
+            (await firstValueFrom(this.route.data))?.['fileName'];
+          if (fileName) this.doc.set(await this.docsS.getDoc(fileName));
 
-        // set meta tags
-        if (this.doc()?.docMeta) {
-          this.metaS.updateMetaTags(this.doc()!.docMeta);
+          // set meta tags
+          if (this.doc()?.docMeta) {
+            this.metaS.updateMetaTags(this.doc()!.docMeta);
+          }
+          this.postNotFound.set(!this.doc());
+        } catch {
+          this.postNotFound.set(true);
         }
-        this.postNotFound = !this.doc();
       }
     );
   }

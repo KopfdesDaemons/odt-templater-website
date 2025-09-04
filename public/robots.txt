@@ -1,0 +1,3 @@
+user-agent: *
+Disallow: /legal-notice/
+Disallow: /legal-notice

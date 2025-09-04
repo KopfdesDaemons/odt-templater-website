@@ -25,11 +25,9 @@ export class Docs {
   private doc: Doc | null | undefined;
   private baseUrl = '/';
 
-  async getDoc(fileName: string): Promise<Doc | null> {
+  async getDoc(fileName: string): Promise<Doc> {
     this.doc = this.loadDocFromTransfareState(fileName);
     if (!this.doc) this.doc = await this.loadFromMarkdownFile(fileName);
-    if (!this.doc) return null;
-
     this.savePostTransfereState(fileName);
     return this.doc;
   }
@@ -49,7 +47,7 @@ export class Docs {
     return post;
   }
 
-  private async loadFromMarkdownFile(fileName: string): Promise<Doc | null> {
+  private async loadFromMarkdownFile(fileName: string): Promise<Doc> {
     const contentUrl = `${this.baseUrl}docs/${fileName}.md`;
 
     const response = await lastValueFrom(
@@ -60,10 +58,6 @@ export class Docs {
         transferCache: { includeHeaders: ['Content-Type'] },
       })
     );
-
-    // 404
-    if (response.headers.get('Content-Type')?.includes('text/html'))
-      return null;
 
     const markdownFile = response.body as string;
     const markdownHeader = this.markdownHelper.extractYamlHeader(markdownFile);

@@ -14,6 +14,10 @@ The odt-templater is available as a [NPM package](https://www.npmjs.com/package/
 npm i odt-templater
 ```
 
+```js
+import { OdtTemplater } from "odt-templater";
+```
+
 You can also embed the odt-templater from a CDN.
 
 ```js

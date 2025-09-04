@@ -6,6 +6,8 @@ date: 2025-09-04
 
 # Empty conditionals
 
+Check your values for empty strings, null or undefined values.
+
 ## Conditionals syntax
 
 Empty conditionals are defined with curly braces, a hash mark, and a key.
@@ -39,8 +41,6 @@ An space can be added between the braces and the key:
 ```
 
 ## Rendering
-
-Check your values for empty strings, null or undefined values.
 
 Define your values in the `data` object.
 
