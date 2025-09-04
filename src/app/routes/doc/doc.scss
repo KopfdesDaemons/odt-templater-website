@@ -5,14 +5,21 @@ article {
 
   p {
     line-height: 1.6;
+  }
 
-    & > code {
-      background-color: #6b6aa8;
-      padding: 0.5em 0.6em;
-      border-radius: 5px;
-      font-size: 0.9em;
-      color: white;
-    }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  p > code,
+  li > code {
+    background-color: #6b6aa8;
+    padding: 0.5em 0.6em;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: white;
   }
 }
 

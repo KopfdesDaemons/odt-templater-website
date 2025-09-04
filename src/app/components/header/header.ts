@@ -15,4 +15,8 @@ export class Header {
   sidemenuS = inject(SidemenuToggle);
 
   faBars = faBars;
+
+  click() {
+    if (this.sidemenuS.menuIsOpen()) this.sidemenuS.toggleMenu();
+  }
 }

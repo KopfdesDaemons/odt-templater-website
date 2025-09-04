@@ -3,10 +3,7 @@
   [ngClass]="{ open: sidemenuS.menuIsOpen() }"
   (click)="sidemenuS.toggleMenu()"
 ></div>
-<aside
-  [ngClass]="{ open: sidemenuS.menuIsOpen() }"
-  (click)="sidemenuS.toggleMenu()"
->
+<aside [ngClass]="{ open: sidemenuS.menuIsOpen() }" (click)="toggleMenu()">
   <nav>
     <ul>
       <li>
@@ -20,9 +17,9 @@
         >
         <hr />
       </li>
-      <li><a routerLink="/">Placeholders</a></li>
-      <li><a routerLink="/">Conditionals</a></li>
-      <li><a routerLink="/">Empty Conditionals</a></li>
+      <li><a routerLink="/doc/placeholders/.">Placeholders</a></li>
+      <li><a routerLink="/doc/conditionals/.">Conditionals</a></li>
+      <li><a routerLink="/doc/empty-conditionals/.">Empty Conditionals</a></li>
     </ul>
   </nav>
 </aside>

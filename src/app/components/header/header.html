@@ -4,10 +4,10 @@
     <button class="toggle-sidemenu-button" (click)="sidemenuS.toggleMenu()">
       <fa-icon [icon]="faBars"></fa-icon>
     </button>
-    <a routerLink="/">odt-templater</a>
+    <a routerLink="/" (click)="click()">odt-templater</a>
   </div>
-  <ul>
+  <ul (click)="click()">
     <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/docs">Docs</a></li>
+    <li><a routerLink="/doc/getting-started-browser/.">Docs</a></li>
   </ul>
 </nav>

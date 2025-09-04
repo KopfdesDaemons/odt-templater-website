@@ -1,5 +1,5 @@
 ---
-title: Getting started (node.js)
+title: odt-templater - Getting started (node.js)
 description: A minimal example of how the odt-templater is used in node.js
 date: 2025-09-04
 ---

@@ -11,4 +11,8 @@ import { NgClass } from '@angular/common';
 })
 export class Sidemenu {
   sidemenuS = inject(SidemenuToggle);
+
+  toggleMenu() {
+    if (this.sidemenuS.menuIsOpen()) this.sidemenuS.toggleMenu();
+  }
 }

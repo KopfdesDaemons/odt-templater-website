@@ -76,8 +76,10 @@ export class Docs {
       (match, lang, code) => {
         const cleanedCode = code.trim();
 
-        const highlightedCode =
-          this.highlightHelper.highlightElement(cleanedCode);
+        const highlightedCode = this.highlightHelper.highlightElement(
+          cleanedCode,
+          lang
+        );
 
         return `<pre><code class="language-${lang}">${highlightedCode}</code></pre>`;
       }

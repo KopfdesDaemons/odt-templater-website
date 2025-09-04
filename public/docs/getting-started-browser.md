@@ -1,5 +1,5 @@
 ---
-tilte: Getting started (Browser)
+tilte: odt-templater - Getting started (Browser)
 description: A minimal example of how the odt-templater is used in the browser
 date: 2025-09-04
 ---
@@ -16,7 +16,7 @@ npm i odt-templater
 
 You can also embed the odt-templater from a CDN.
 
-```javascript
+```js
 import { OdtTemplater } from "https://cdn.jsdelivr.net/npm/odt-templater/dist/esm/index.js";
 ```
 
