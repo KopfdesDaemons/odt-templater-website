@@ -89,10 +89,8 @@ nav {
   align-items: center;
   height: var(--header-height);
   width: var(--header-height);
-
-  fa-icon {
-    font-size: 1.5em;
-  }
+  padding: 0.5em;
+  box-sizing: border-box;
 
   &:hover {
     transform: scale(1.3);

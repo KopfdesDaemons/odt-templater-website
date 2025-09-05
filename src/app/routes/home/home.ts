@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCopy } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-home',
-  imports: [FontAwesomeModule, RouterLink],
+  imports: [RouterLink, NgClass],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
-  faCopy = faCopy;
+  copyButtonClicked = signal(false);
 
   copyInstallCommand() {
     navigator.clipboard.writeText('npm i odt-templater');
+  }
+
+  copyButtonClick() {
+    this.copyButtonClicked.set(true);
+    setTimeout(() => {
+      this.copyButtonClicked.set(false);
+    }, 2000);
   }
 }
