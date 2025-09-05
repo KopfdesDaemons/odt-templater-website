@@ -1,6 +1,6 @@
 # OdtTemplaterWebsite
 
-A wibsite for the npm package [odt-templater](https://npmjs.com/package/odt-templater).
+A website for the [odt-templater](https://npmjs.com/package/odt-templater) npm package.
 
 ## Development server
 

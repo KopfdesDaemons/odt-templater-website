@@ -96,6 +96,13 @@
             ],
             "styles": ["src/styles.scss"]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "cname": "odt-templater.com",
+            "dir": "dist/odt-templater-website/browser"
+          }
         }
       }
     }
