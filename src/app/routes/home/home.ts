@@ -23,6 +23,7 @@ export class Home implements OnInit {
   }
 
   copyButtonClick() {
+    this.copyInstallCommand();
     this.copyButtonClicked.set(true);
     setTimeout(() => {
       this.copyButtonClicked.set(false);
