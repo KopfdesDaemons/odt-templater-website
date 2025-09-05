@@ -1,5 +1,5 @@
 ---
-tilte: odt-templater - Getting started (Browser)
+title: odt-templater - Getting started (Browser)
 description: A minimal example of how the odt-templater is used in the browser
 date: 2025-09-04
 ---
