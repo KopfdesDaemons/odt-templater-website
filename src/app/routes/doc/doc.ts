@@ -25,7 +25,7 @@ export class DocRoute {
   private metaS = inject(MetaService);
   postContent = viewChild.required<ElementRef>('postContent');
 
-  doc = signal<Doc | undefined | null>(undefined);
+  doc = signal<Doc | undefined>(undefined);
   private routeParamsSubscription: Subscription | undefined;
   postNotFound = signal(false);
 
@@ -33,18 +33,20 @@ export class DocRoute {
     this.routeParamsSubscription = this.route.params.subscribe(
       async (param) => {
         try {
+          this.doc.set(undefined);
           this.postNotFound.set(false);
 
           const fileName =
             param['fileName'] ||
             (await firstValueFrom(this.route.data))?.['fileName'];
+
+          // load doc
           if (fileName) this.doc.set(await this.docsS.getDoc(fileName));
 
           // set meta tags
           if (this.doc()?.docMeta) {
             this.metaS.updateMetaTags(this.doc()!.docMeta);
           }
-          this.postNotFound.set(!this.doc());
         } catch {
           this.postNotFound.set(true);
         }

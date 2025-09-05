@@ -23,7 +23,6 @@ export class Docs {
   private platformId = inject<object>(PLATFORM_ID);
 
   private doc: Doc | null | undefined;
-  private baseUrl = '/';
 
   async getDoc(fileName: string): Promise<Doc> {
     this.doc = this.loadDocFromTransfareState(fileName);
@@ -48,7 +47,7 @@ export class Docs {
   }
 
   private async loadFromMarkdownFile(fileName: string): Promise<Doc> {
-    const contentUrl = `${this.baseUrl}docs/${fileName}.md`;
+    const contentUrl = `/docs/${fileName}.md`;
 
     const response = await lastValueFrom(
       this.http.get(contentUrl, {

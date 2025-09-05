@@ -4,7 +4,6 @@ nav {
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  --dinamic-container-width: 13em;
 
   a {
     color: var(--font-color);
@@ -33,7 +32,7 @@ nav {
   }
 
   .dynamic-container {
-    width: var(--dinamic-container-width);
+    width: var(--sidemenu-width);
     display: flex;
     align-items: center;
     z-index: 2;
@@ -50,7 +49,7 @@ nav {
     }
 
     ul {
-      margin-left: var(--dinamic-container-width);
+      margin-left: var(--sidemenu-width);
     }
   }
 
@@ -62,7 +61,7 @@ nav {
     }
 
     ul {
-      margin-left: var(--dinamic-container-width);
+      margin-left: var(--sidemenu-width);
       padding-right: 0;
     }
 

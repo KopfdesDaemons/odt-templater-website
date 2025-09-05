@@ -28,6 +28,8 @@ import { OdtTemplater } from "https://cdn.jsdelivr.net/npm/odt-templater/dist/es
 
 The odt templater requires the content of the ODT file as a string as a parameter. The content must be read from the `content.xml` file within the ODT file. Any ZIP library, such as [JSZip](https://www.npmjs.com/package/jszip) or [PizZip](https://www.npmjs.com/package/pizzip?activeTab=code), can be used for this task.
 
+There is a [GitHub repository](https://github.com/KopfdesDaemons/odt-templater-examples) with the following example.
+
 ```js
 async function generateOdtDocument() {
   const data = {
