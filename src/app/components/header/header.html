@@ -1,7 +1,12 @@
 <nav [ngClass]="{ sidemenuIsOpen: sidemenuS.menuIsOpen() }">
   <!-- When the sidemenu is open, the container is fixed -->
   <div class="dynamic-container">
-    <button class="toggle-sidemenu-button" (click)="sidemenuS.toggleMenu()">
+    <button
+      class="toggle-sidemenu-button"
+      (click)="sidemenuS.toggleMenu()"
+      aria-label="Toggle sidemenu"
+      title="Toggle sidemenu"
+    >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
         <path
           fill="currentColor"
