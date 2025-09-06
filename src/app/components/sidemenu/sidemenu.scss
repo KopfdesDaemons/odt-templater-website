@@ -28,6 +28,7 @@ aside {
   transition-behavior: allow-discrete;
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
   background-color: white;
+  user-select: none;
 
   // closed on big screens (inverted class)
   &.open {
