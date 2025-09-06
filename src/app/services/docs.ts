@@ -19,7 +19,6 @@ export class Docs {
   private http = inject(HttpClient);
   private transferState = inject(TransferState);
   private markdownHelper = MarkdownHelper;
-  private highlightHelper = HighlightHelper;
   private platformId = inject<object>(PLATFORM_ID);
 
   private doc: Doc | null | undefined;
@@ -69,7 +68,7 @@ export class Docs {
       (match, lang, code) => {
         const cleanedCode = code.trim();
 
-        const highlightedCode = this.highlightHelper.highlightElement(
+        const highlightedCode = HighlightHelper.highlightElement(
           cleanedCode,
           lang
         );
