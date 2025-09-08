@@ -1,6 +1,6 @@
 <app-header></app-header>
+<app-sidemenu></app-sidemenu>
 <div class="content" [ngClass]="{ sidemenuIsOpen: sidemenuS.menuIsOpen() }">
-  <app-sidemenu></app-sidemenu>
   <router-outlet />
-  <app-footer></app-footer>
 </div>
+<app-footer></app-footer>
