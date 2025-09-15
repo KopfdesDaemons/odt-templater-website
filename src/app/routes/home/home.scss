@@ -67,16 +67,29 @@ section {
 
       &:hover {
         cursor: pointer;
-        transform: scale(1.2);
+
+        .copy {
+          transform: scale(1.2);
+        }
       }
 
       &:focus-visible {
         outline: 2px solid;
       }
 
+      .copied {
+        display: none;
+      }
+
       &.clicked {
-        color: green;
-        transform: scale(1.2);
+        .copy {
+          display: none;
+        }
+
+        .copied {
+          display: block;
+          fill: green;
+        }
       }
     }
   }

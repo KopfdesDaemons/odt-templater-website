@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   inject,
@@ -18,6 +19,7 @@ import { MetaService } from '../../services/meta';
   templateUrl: './documentation.html',
   styleUrl: './documentation.scss',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Documentation {
   private route = inject(ActivatedRoute);

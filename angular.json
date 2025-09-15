@@ -20,7 +20,6 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "statsJson": true,
             "assets": [
               {
                 "glob": "**/*",
@@ -33,19 +32,11 @@
             "ssr": {
               "entry": "src/server.ts"
             },
-            "allowedCommonJsDependencies": [
-              "prismjs",
-              "prismjs/plugins/toolbar/prism-toolbar",
-              "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard",
-              "prismjs/components/prism-typescript",
-              "prismjs/components/prism-yaml",
-              "prismjs/components/prism-json",
-              "prismjs/components/prism-scss",
-              "yaml"
-            ]
+            "allowedCommonJsDependencies": ["yaml"]
           },
           "configurations": {
             "production": {
+              "statsJson": true,
               "budgets": [
                 {
                   "type": "initial",

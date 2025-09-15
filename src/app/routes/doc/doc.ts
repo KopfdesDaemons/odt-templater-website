@@ -1,4 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { Documentation } from '../../components/documentation/documentation';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
@@ -8,6 +13,7 @@ import { filter } from 'rxjs';
   imports: [Documentation],
   templateUrl: './doc.html',
   styleUrl: './doc.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DocRoute {
   shouldHydrate = signal(false);
