@@ -9,7 +9,7 @@ const __stripTrailingSlash = Location.stripTrailingSlash;
 
 // Ermöglicht Navigation mit Trailing Slash ohne dass dieser entfernt wird
 Location.stripTrailingSlash = function _stripTrailingSlash(
-  url: string
+  url: string,
 ): string {
   const urlParts = url.match(/([^?#]*)(\?[^#]*)?(#.*)?/);
 

@@ -52,7 +52,7 @@ export class Documentation {
         } catch {
           this.postNotFound.set(true);
         }
-      }
+      },
     );
   }
 
