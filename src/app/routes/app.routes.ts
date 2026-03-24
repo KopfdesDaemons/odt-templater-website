@@ -17,10 +17,10 @@ export const routes: Routes = [
   },
   {
     path: 'doc/:fileName',
-    loadComponent: () => import('./doc/doc').then((m) => m.DocRoute),
+    loadComponent: () => import('./doc/doc').then((m) => m.Documentation),
   },
   {
     path: 'doc/:fileName/.',
-    loadComponent: () => import('./doc/doc').then((m) => m.DocRoute),
+    loadComponent: () => import('./doc/doc').then((m) => m.Documentation),
   },
 ];

@@ -1,29 +1,62 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   inject,
   signal,
+  viewChild,
+  ViewEncapsulation,
 } from '@angular/core';
-import { Documentation } from '../../components/documentation/documentation';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription, firstValueFrom } from 'rxjs';
+import { Doc } from '../../models/doc';
+import { Docs } from '../../services/docs';
+import { MetaService } from '../../services/meta';
 
 @Component({
   selector: 'app-doc',
-  imports: [Documentation],
+  imports: [],
   templateUrl: './doc.html',
   styleUrl: './doc.scss',
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DocRoute {
-  shouldHydrate = signal(false);
-  router = inject(Router);
+export class Documentation {
+  private route = inject(ActivatedRoute);
+  private docsS = inject(Docs);
+  private metaS = inject(MetaService);
+  postContent = viewChild.required<ElementRef>('postContent');
 
-  ngOnInit(): void {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.shouldHydrate.set(true);
-      });
+  doc = signal<Doc | undefined>(undefined);
+  private routeParamsSubscription: Subscription | undefined;
+  postNotFound = signal(false);
+
+  ngOnInit() {
+    this.routeParamsSubscription = this.route.params.subscribe(
+      async (param) => {
+        try {
+          this.doc.set(undefined);
+          this.postNotFound.set(false);
+
+          const fileName =
+            param['fileName'] ||
+            (await firstValueFrom(this.route.data))?.['fileName'];
+
+          // load doc
+          if (fileName) this.doc.set(await this.docsS.getDoc(fileName));
+
+          // set meta tags
+          if (this.doc()?.docMeta) {
+            this.metaS.updateMetaTags(this.doc()!.docMeta);
+          }
+        } catch {
+          this.postNotFound.set(true);
+        }
+      },
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.routeParamsSubscription?.unsubscribe();
   }
 }
