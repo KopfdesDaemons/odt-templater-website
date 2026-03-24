@@ -10,7 +10,7 @@ import {
   withPreloading,
 } from '@angular/router';
 
-import { routes } from './app.routes';
+import { routes } from './routes/app.routes';
 import {
   provideClientHydration,
   withEventReplay,
@@ -29,7 +29,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'top',
         anchorScrolling: 'enabled',
       }),
-      withPreloading(PreloadAllModules)
+      withPreloading(PreloadAllModules),
     ),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),

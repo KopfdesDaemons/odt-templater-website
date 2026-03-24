@@ -8,7 +8,7 @@ import {
   TransferState,
 } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { MarkdownHelper } from '../helpers/markdown';
+import { MarkdownHelper } from '../../../common/helpers/markdown';
 import { Doc } from '../models/doc';
 import { HighlightHelper } from '../helpers/highlight';
 
@@ -24,18 +24,18 @@ export class Docs {
   private doc: Doc | null | undefined;
 
   async getDoc(fileName: string): Promise<Doc> {
-    this.doc = this.loadDocFromTransfareState(fileName);
+    this.doc = this.loadDocFromTransferState(fileName);
     if (!this.doc) this.doc = await this.loadFromMarkdownFile(fileName);
-    this.savePostTransfereState(fileName);
+    this.savePostTransferState(fileName);
     return this.doc;
   }
 
-  private savePostTransfereState(title: string) {
+  private savePostTransferState(title: string) {
     const key = makeStateKey<Doc>('post-' + title);
     this.transferState.set(key, this.doc);
   }
 
-  private loadDocFromTransfareState(title: string): Doc | null {
+  private loadDocFromTransferState(title: string): Doc | null {
     if (!isPlatformBrowser(this.platformId)) return null;
     const key = makeStateKey<Doc>('post-' + title);
     const postFromState = this.transferState.get(key, null);
@@ -54,7 +54,7 @@ export class Docs {
         observe: 'response',
         headers: { Accept: 'text/plain' },
         transferCache: { includeHeaders: ['Content-Type'] },
-      })
+      }),
     );
 
     const markdownFile = response.body as string;
@@ -70,16 +70,15 @@ export class Docs {
 
         const highlightedCode = HighlightHelper.highlightElement(
           cleanedCode,
-          lang
+          lang,
         );
 
         return `<pre><code class="language-${lang}">${highlightedCode}</code></pre>`;
-      }
+      },
     );
 
-    const highlightedContent = await this.markdownHelper.parseMarkdown(
-      finalMarkdownBody
-    );
+    const highlightedContent =
+      await this.markdownHelper.parseMarkdown(finalMarkdownBody);
 
     return new Doc(markdownHeader, fileName, highlightedContent);
   }

@@ -1,5 +1,5 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
-import { getAllDocsTitles } from './server/services/docs.service';
+import { getAllDocsTitles } from 'server/services/docs.service';
 
 export const serverRoutes: ServerRoute[] = [
   {

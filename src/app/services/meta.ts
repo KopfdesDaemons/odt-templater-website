@@ -2,8 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { BASE_URL } from '../environment/enviroment';
-import { DocMeta } from '../models/doc-meta';
+import { DocMeta } from '../../../common/models/doc-meta';
+import { BASE_URL } from '../environment/environment';
 
 @Injectable({
   providedIn: 'root',

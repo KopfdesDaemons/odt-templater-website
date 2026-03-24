@@ -1,4 +1,4 @@
-import { DocMeta } from './doc-meta';
+import { DocMeta } from '../../../common/models/doc-meta';
 
 export class Doc {
   docMeta: DocMeta;
@@ -7,7 +7,7 @@ export class Doc {
   constructor(
     metaObject: Partial<DocMeta>,
     fileName: string,
-    postContent?: string
+    postContent?: string,
   ) {
     this.docMeta = new DocMeta(fileName);
     this.docMeta.initFromObject(metaObject);
