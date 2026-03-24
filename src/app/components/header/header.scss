@@ -4,11 +4,13 @@ nav {
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  padding: 1em;
 
   a {
     color: var(--font-color);
     text-decoration: none;
   }
+
   ul {
     flex: 1;
     display: flex;
@@ -17,17 +19,10 @@ nav {
     list-style: none;
     padding: 0;
     padding-right: var(--sidemenu-width);
-    margin: 0;
 
     a {
       font-weight: bold;
       font-size: 1.3em;
-    }
-  }
-
-  @media only screen and (max-width: 800px) {
-    ul {
-      padding-right: unset;
     }
   }
 
@@ -50,6 +45,22 @@ nav {
 
     ul {
       margin-left: var(--sidemenu-width);
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    ul {
+      padding-right: unset;
+    }
+
+    &.sidemenuIsOpen {
+      ul {
+        margin-left: 14em;
+      }
+    }
+
+    .dynamic-container {
+      width: 14em;
     }
   }
 
